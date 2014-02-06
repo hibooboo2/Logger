@@ -269,6 +269,7 @@ public class Logger
 
 		File logFile= new File(this.logFolder + "//" + this.logFileName);
 		logFile.delete();
+		this.makeFile();
 	}
 
 	/**
@@ -312,5 +313,13 @@ public class Logger
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args)
+	{
+
+		Logger log= new Logger(1000, true, 10, true, "LogTest.log", "LogTest");
+		log.log(1, "Hello, form Log Test.");
+		log.flush();
 	}
 }
