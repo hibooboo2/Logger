@@ -64,7 +64,7 @@ public class Logger
 	/**
 	 * The folder where the logs are stored. Starts from Current Directory.
 	 */
-	private String		logFolder	= System.getProperty("user.dir") + "\\Log";
+	private String		logFolder	= System.getProperty("user.dir") + "//Log";
 
 	/**
 	 * This is the constructor to create a custom logger.
@@ -92,7 +92,7 @@ public class Logger
 		this.tree= tree;
 		this.maxLevel= lvl;
 		this.logFileName= logFileName;
-		this.logFolder= System.getProperty("user.dir") + "\\" + logFolder;
+		this.logFolder= System.getProperty("user.dir") + "//" + logFolder;
 		this.makeFile();
 	}
 
@@ -197,7 +197,7 @@ public class Logger
 	private synchronized void writeToFile()
 	{
 
-		File logFile= new File(this.logFolder + "\\" + this.logFileName);
+		File logFile= new File(this.logFolder + "//" + this.logFileName);
 		if (!logFile.exists())
 		{
 			try
@@ -267,7 +267,7 @@ public class Logger
 	public synchronized void resetLog()
 	{
 
-		File logFile= new File(this.logFileName);
+		File logFile= new File(this.logFolder + "//" + this.logFileName);
 		logFile.delete();
 	}
 
@@ -277,7 +277,7 @@ public class Logger
 	private void makeFile()
 	{
 
-		File logFile= new File(this.logFolder + "\\" + this.logFileName);
+		File logFile= new File(this.logFolder + "//" + this.logFileName);
 		if (!logFile.exists())
 		{
 			this.makeFolder();
